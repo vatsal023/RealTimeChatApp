@@ -16,7 +16,18 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         required:true,
-    }
+    },
+    verified:{
+        type:Boolean,
+        default:false,
+    },
+    verificationLinkSent:{
+        type:Boolean,
+        default:false
+    },
+    avatarLink : {
+        type:String
+    },
 }, {timestamps:true}
 );
 
