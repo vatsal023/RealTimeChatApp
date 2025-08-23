@@ -1,5 +1,6 @@
 const User = require("../models/userModel");
 const {validateLogin} = require("../Validation/auth.js")
+const {setUser} = require("../service/auth.js")
 
 async function loginController(req,res){
     try{
@@ -27,7 +28,14 @@ async function loginController(req,res){
             return res.status(400).send({message:"User doesn't exist"});
         }
 
-
+        const token = setUser(user);
+        res.status(200).cookie("uid",token,{
+            httpOnly:true,
+            secure:true,
+            sameSite:"none",
+            expires:new Date(Date.now() + 7*24*60*60*1000),
+        }).send({message:"Login successful",status:200});
+        return;
     }catch(error){
         console.error("Error in loginController:",error);
         res.status(500).send({message:"Internal Server Error"});
