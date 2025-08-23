@@ -1,5 +1,8 @@
+const bcrypt = require("bcrypt")
 const {User} = require{"../models/userModel.js"};
 const {validateRegister} = require("../Validation/auth.js");
+const {Token} = require("../models/tokenModel.js")
+const crypto  = require("crypto")
 
 async function registerController(req,res){
     const {firstName,lastName,email,password} = req.body;
@@ -30,8 +33,21 @@ async function registerController(req,res){
             ...req.body,password:hashPassword
         }).save();
 
-        const token = setUser(user);
-        res.cookie("uid",token);
+        //Generate a verification token and send an email
+        const token = await new Token({
+            userId: user._id,
+            token : crypto.randomBytes(16).toString("hex"),
+            createdAt:Date.now(),
+            expiresAt:Date.now()+3600000,
+        }).save();
+
+        const url = `${process.env.BASR_URL}/users/${user._id}/verify/${token.token}`;
+        await sendEmail(user.email,"Verify Email",url);
+
+        user.verificationLinkSent = true;
+        await user.save();
+        res.status(201).send({message:`Verification email sent to ${user.email}`});        
+
     }catch(error){
         console.error("Error in registerController:",error);
         res.status(500).send({message:"Internal Server Error"});
