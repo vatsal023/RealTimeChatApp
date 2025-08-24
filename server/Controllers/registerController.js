@@ -1,7 +1,8 @@
 const bcrypt = require("bcrypt")
-const {User} = require{"../models/userModel.js"};
+const {User} = require("../models/userModel.js");
 const {validateRegister} = require("../Validation/auth.js");
 const {Token} = require("../models/tokenModel.js")
+const sendEmail  = require("../utils/sendEmail.js")
 const crypto  = require("crypto")
 
 async function registerController(req,res){

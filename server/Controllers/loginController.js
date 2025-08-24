@@ -29,7 +29,7 @@ async function loginController(req,res){
         }
 
         const token = setUser(user);
-        res.status(200).cookie("uid",token,{
+        res.status(200).cookie("authToken",token,{
             httpOnly:true,
             secure:true,
             sameSite:"none",

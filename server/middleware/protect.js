@@ -1,16 +1,16 @@
 
 
 
-async function restrictToLoggedinUserOnly(req,res,next){
-    const userUid = req.cookies.uid;
-    if(!userUid) {
+// async function restrictToLoggedinUserOnly(req,res,next){
+//     const userUid = req.cookies.authToken;
+//     if(!userUid) {
 
-    }
-    const user = getUser(userUid);
-    if(!user){
+//     }
+//     const user = getUser(userUid);
+//     if(!user){
         
-    }
+//     }
 
-    req.user = user;
-    next();
-}
+//     req.user = user;
+//     next();
+// }
