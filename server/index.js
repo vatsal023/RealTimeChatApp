@@ -15,6 +15,9 @@ connection();
 app.use(express.json());
 app.use("/api/user",userRoute)
 
+app.get("/use",(req,res)=>{
+    res.send("Hello world")
+})
 
 app.listen(PORT,()=>{
     console.log(`Server started at PORT ${PORT} `)
