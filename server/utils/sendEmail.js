@@ -14,7 +14,7 @@ async function sendEmail(email,subject,text){
         });
 
         await transporter.sendMail({
-            from: process.env.USER,
+            from: process.env.SMTP_USER,
             to:email,
             subject: subject,
             text:text,
