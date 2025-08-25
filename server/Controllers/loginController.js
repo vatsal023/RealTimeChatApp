@@ -1,6 +1,7 @@
-const User = require("../models/userModel");
+const {User} = require("../models/userModel");
 const {validateLogin} = require("../Validation/auth.js")
 const {setUser} = require("../service/auth.js")
+const bcrypt = require("bcrypt");
 
 async function loginController(req,res){
     try{
