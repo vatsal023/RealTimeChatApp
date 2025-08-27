@@ -15,5 +15,7 @@ router.get('/people',peopleController);
 router.get('/profile',profileController);
 router.get('/profile/update',profileUpdate);
 
-
 module.exports = router;
+
+
+
