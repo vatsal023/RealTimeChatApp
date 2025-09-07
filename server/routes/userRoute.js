@@ -5,6 +5,7 @@ const loginController = require("../Controllers/loginController");
 const peopleController = require("../Controllers/peopleController");
 const verifyEmail = require("../Controllers/emailverificationController");
 const { profileController,profileUpdate } = require("../Controllers/profileController");
+const messageController = require("../Controllers/messagecontroller");
 
 const router = express.Router();
 
@@ -14,6 +15,7 @@ router.get('/:id/verify/:token',verifyEmail);
 router.get('/people',peopleController);
 router.get('/profile',profileController);
 router.get('/profile/update',profileUpdate);
+router.get('/messages/:userId',messageController);
 
 module.exports = router;
 

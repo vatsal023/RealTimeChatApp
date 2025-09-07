@@ -1,6 +1,9 @@
 const ws = require("ws");
-const { User } = require("./models/userModel");
-
+const jwt = require("jsonwebtoken")
+const fs = require("fs");
+const Message = require("./models/messageModel");
+const {clear} = require("console");
+const {User} = require("./models/userModel");
 
 const createWebSocketServer = (server) => {
     const wss = new ws.WebSocketServer({server})
@@ -67,7 +70,7 @@ const createWebSocketServer = (server) => {
             const {recipient,text} = messageData;
             const msgDoc = await Message.create({
                 sender: connection.userId,
-                receipient,
+                recipient,
                 text,
             })
 
