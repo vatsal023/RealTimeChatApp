@@ -1,3 +1,5 @@
+const protect = require("../middleware/protect");
+const Message = require("../models/messageModel");
 
 const messageController = async(req,res)=>{
 

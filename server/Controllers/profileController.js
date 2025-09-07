@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken")
 const {User}  = require("../models/userModel")
 
 const profileController = async(req,res)=>{
+    console.log("Cookies: ", req.cookies);
     const token = req.cookies.authToken;
     if(token){
         jwt.verify(token,process.env.JWTPRIVATEKEY,{},async(err,userData)=>{
@@ -20,7 +21,7 @@ const profileController = async(req,res)=>{
 const profileUpdate = async(req,res)=>{
     const token = req.cookies.authToken;
     if(token){
-        jwt.verify(token,process.en.JWTPRIVATEKEY,{},(err,userData)=>{
+        jwt.verify(token,process.env.JWTPRIVATEKEY,{},(err,userData)=>{
             if(err) throw err;
         });
     }else {
