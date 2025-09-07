@@ -8,12 +8,14 @@ const userRoute = require("./routes/userRoute.js")
 const app = express();
 const PORT = 8001;
 
+app.use(cookieParser());
 //database connection
 connection();
 
 //middlewares
 app.use(express.json());
 app.use("/api/user",userRoute)
+// app.use(cookieParser());
 
 app.get("/use",(req,res)=>{
     res.send("Hello world")
