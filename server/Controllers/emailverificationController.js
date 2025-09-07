@@ -21,7 +21,7 @@ const verifyEmail = async(req,res) =>{
         });
 
         if(!token){
-            return res.status(400).sedn({message:"Invalid Link"});
+            return res.status(400).send({message:"Invalid Link"});
         }
 
         if(token.expiresAt<Date.now()){
