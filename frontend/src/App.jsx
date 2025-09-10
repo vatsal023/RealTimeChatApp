@@ -4,6 +4,7 @@ import Register from './pages/register';
 // import Register from './pages/Register.jsx'
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Register1 from './pages/Register1';
+import Login from './pages/Login';
 
 function App() {
   
@@ -17,8 +18,8 @@ function App() {
       element:<><Register/></>
     },
     {
-      path:"/register1",
-      element:<><Register1/></>
+      path:"/login",
+      element:<><Login/></>
     }
    ])
 
