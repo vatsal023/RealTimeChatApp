@@ -5,6 +5,7 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Register1 from './pages/Register1';
 import Login from './pages/Login';
 import VerifyEmail from './pages/verifyEmail';
+import { Toaster } from "react-hot-toast";
 import { AuthProvider, useAuth } from "./context/authContext";
 import {ProfileProvider} from "./context/profileContext"
 import LandingNav from './components/LandingNav';
@@ -24,39 +25,15 @@ function App() {
     },
     {
       path:"/register",
-      element:<><Register/></>
+      element:<Register/>
     },
     {
       path:"/login",
-      element:<><Login/></>
+      element:<Login/>
     },
     {
       path:"/users",
-      element:<><VerifyEmail/></>
-    },
-    {
-      path:"/landing",
-      element:<><LandingNav/></>
-    },
-    {
-      path:"/hero",
-      element:<><Hero/></>
-    },
-    {
-      path:"/features",
-      element:<><Features/></>
-    },
-    {
-      path:"/payment",
-      element:<><Payments/></>
-    },
-    {
-      path:"/footer",
-      element:<><Footer/></>
-    },
-    {
-      path:"/logos",
-      element:<CustomerLogos/>
+      element:<VerifyEmail/>
     },
     {
       path:"/home",
@@ -69,6 +46,7 @@ function App() {
     <AuthProvider>
       <ProfileProvider>
         <RouterProvider router = {router}/>
+        <Toaster/>
       </ProfileProvider>
     </AuthProvider>
     </>

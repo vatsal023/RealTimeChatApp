@@ -19,21 +19,22 @@ const Login = () => {
   useEffect(() => {
     console.log(isAuthenticated);
     if (isAuthenticated) {
-      navigate("/");
+      navigate("/home");
     }
   }, [isAuthenticated]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "/api/user/login";
+      const url = "https://jsonplaceholder.typicode.com/posts";
+      // const url = "/api/user/login";
       console.log(data);
       const response = await axios.post(url, data, {
         withCredentials: true, // Set withCredentials to true
       });
 
       console.log(response.message);
-      if (response.status == 200) {
+      if (response.status == 201) {
         toast.success(response.message);
         setAuthenticated(true);
       }
