@@ -18,7 +18,7 @@ const createWebSocketServer = (server) => {
 
                     return {
                         userId,
-                        userName,
+                        username,
                     };
                 })
             );
