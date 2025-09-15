@@ -15,6 +15,9 @@ import Payments from './components/Payment';
 import Footer from './components/Footer';
 import CustomerLogos from './components/CustomerLogos';
 import Home from './pages/Home';
+import ChatMessages from './components/Chat/ChatMessages';
+import Nav from './components/Chat/Nav';
+import TopBar from './components/Chat/TopBar';
 
 function App() {
   
@@ -38,6 +41,18 @@ function App() {
     {
       path:"/home",
       element:<Home/>
+    },
+    {
+      path:"/msg",
+      element:<ChatMessages/>
+    },
+    {
+      path:"/nav",
+      element:<Nav/>
+    },
+    {
+      path:"/top",
+      element:<TopBar/>
     }
    ])
 
