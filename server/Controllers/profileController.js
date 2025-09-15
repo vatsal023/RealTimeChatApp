@@ -11,7 +11,6 @@ const profileController = async(req,res)=>{
             const user = await User.findOne({_id:userData._id});
             res.json(user);
         })
- 
     } else{
         res.status(401).json("no token");
     }
