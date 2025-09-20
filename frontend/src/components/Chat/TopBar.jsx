@@ -1,14 +1,10 @@
 import React from 'react'
 
-const TopBar = ({
-  setSelectedUserId,
-  selectedUserId,
-  offlinePeople,
-  onlinePeople,
-}) => {
+const TopBar = ({selectedUserId,setSelectedUserId,offlinePeople,onlinePeople})=>{
   return (
-    <div className="bg-dark absolute right-2 text-white w-full py-5  z-20 backdrop-blur-xl flex items-center px-5 gap-2 text-lg font-semibold border-b border-gray-700 capitalize">
-      <svg
+
+    <div className="absolute right-2 text-white w-full py-5  bg-transparent z-20 backdrop-blur-xl flex items-center px-5 gap-2 text-lg font-semibold border-b border-gray-700 capitalize">
+       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -24,25 +20,28 @@ const TopBar = ({
           d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
         />
       </svg>
-      {/* <p>Hello world</p> */}
-      {/* {
+      {
         <>
-          {onlinePeople[selectedUserId] ? (
-            <>
+           {
+            onlinePeople[selectedUserId]?(
+              <>
               {onlinePeople[selectedUserId].username}
-              <span className="h-3 rounded-full aspect-square bg-green-400"></span>
-            </>
-          ) : (
-            <>
-              <span>{offlinePeople[selectedUserId].firstName}</span>
+            <span className="h-3 rounded-full aspect-square bg-green-400">
+
+            </span>
+              </>
+            ):(
+              <>
+              <span>{offlinePeople[selectedUserId]?.firstName || offlinePeople[selectedUserId]?.username || "Unknown"}</span>
 
               <span className="h-3 rounded-full aspect-square bg-gray-400"></span>
-            </>
-          )}
+              </>
+            )
+           }
         </>
-      } */}
+      }
     </div>
-  );
-};
+  )  
+}
 
 export default TopBar
