@@ -20,8 +20,8 @@ const Register = () => {
         e.preventDefault();
         try {
             // const url = "/api/user/register";
-            // const url = "https://jsonplaceholder.typicode.com/posts";
-            const url = "";
+            const url = "https://jsonplaceholder.typicode.com/posts";
+            // const url = "";
             const { data: res } = await axios.post(url, data);
             console.log(res);
             toast.success("Form submitted successfully");
