@@ -7,11 +7,11 @@ const Nav = () => {
   const { logout, isAuthenticated } = useAuth();
   const [isMobile, setIsMobile] = useState(true);
   const navigate = useNavigate();
-//   useEffect(() => {
-//     if (!isAuthenticated) {
-//       navigate("/login");
-//     }
-//   }, [isAuthenticated]);
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  }, [isAuthenticated]);
   return (
     <>
       <button
