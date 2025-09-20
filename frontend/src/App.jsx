@@ -18,13 +18,16 @@ import Home from './pages/Home';
 import ChatMessages from './components/Chat/ChatMessages';
 import Nav from './components/Chat/Nav';
 import TopBar from './components/Chat/TopBar';
+import ChatHome from './pages/ChatHome';
+import Profile from './components/Profile';
+import ChatHomeMock from './pages/ChatHome1';
 
 function App() {
   
    const router = createBrowserRouter([
     {
       path:"/",
-      element:<><h1>Helloworld</h1></>
+      element:<h1>Helloworld</h1>
     },
     {
       path:"/register",
@@ -53,6 +56,18 @@ function App() {
     {
       path:"/top",
       element:<TopBar/>
+    },
+    // {
+    //   path:"/chathome",
+    //   element:<ChatHome/>
+    // },
+    {
+      path:"/chathome",
+      element:<ChatHomeMock/>
+    },
+    {
+      path:"/profile",
+      element:<Profile/>
     }
    ])
 
