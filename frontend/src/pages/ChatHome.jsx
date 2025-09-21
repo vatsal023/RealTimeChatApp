@@ -6,6 +6,7 @@ import MessageInputForm from "../components/Chat/MessageInputForm";
 import Nav from "../components/Chat/Nav";
 import OnlineUsersList from "../components/Chat/OnlineUserList";
 import TopBar from "../components/Chat/TopBar";
+import { socketUrl } from "../../apiconfig";
 import { useAuth } from "../context/authContext"
 import { useNavigate } from "react-router-dom";
 
@@ -20,18 +21,18 @@ const ChatHome = () => {
     const { userDetails } = useProfile();
     const navigate = useNavigate();
 
-    // const connecttoWebSocket = () => {
-    //     const ws = new WebSocket(socketUrl);
-    //     ws.addEventListener("message", handleMessage);
-    //     setWs(ws);
-    // };
+    const connecttoWebSocket = () => {
+        const ws = new WebSocket(socketUrl);
+        ws.addEventListener("message", handleMessage);
+        setWs(ws);
+    };
 
-    // useEffect(() => {
-    //     connecttoWebSocket();
-    //     ws?.addEventListener("close", () => {
-    //         connecttoWebSocket();
-    //     })
-    // }, [userDetails, selectedUserId]);
+    useEffect(() => {
+        connecttoWebSocket();
+        ws?.addEventListener("close", () => {
+            connecttoWebSocket();
+        })
+    }, [userDetails, selectedUserId]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -131,12 +132,12 @@ const ChatHome = () => {
             }
         ])
     }
-    // useEffect(() => {
-    //     checkAuth();
-    //     if (!isAuthenticated) {
-    //         navigate("/");
-    //     }
-    // }, [])
+    useEffect(() => {
+        checkAuth();
+        if (!isAuthenticated) {
+            navigate("/");
+        }
+    }, [])
     return (
         <div className="flex min-h-screen bg-background">
             <Nav />
