@@ -12,7 +12,7 @@ async function registerController(req,res){
         const {error} = validateRegister(req.body)
          
         if(error){
-            return res.status(400).send({message:error.details[0].message});
+            return res.status(400).send({message:"Some error"});
         }
 
         //Check if user with the given email already exists
