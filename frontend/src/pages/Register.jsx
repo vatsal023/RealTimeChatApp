@@ -19,11 +19,11 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // const url = "/api/user/register";
-            const url = "https://jsonplaceholder.typicode.com/posts";
+            const url = "/api/user/register";
+            // const url = "https://jsonplaceholder.typicode.com/posts";
             // const url = "";
             const { data: res } = await axios.post(url, data);
-            console.log(res);
+            console.log(res.message);
             toast.success("Form submitted successfully");
         } catch (error) {
             if (
@@ -31,8 +31,8 @@ const Register = () => {
                 error.response.status >= 300 &&
                 error.response.status <= 500
             ) {
-                // toast.error(error.response.data.message);
-                toast.error("Form not submitted successfully")
+                toast.error(error.response.data.message);
+                // toast.error("Form not submitted successfully")
             }
         }
     };
