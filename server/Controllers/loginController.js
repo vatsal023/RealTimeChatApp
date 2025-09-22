@@ -8,7 +8,9 @@ async function loginController(req,res){
         const {error} = validateLogin(req.body);
 
         if(error){
+
             return res.status(400).send({message:error.details[0].message});
+            // return res.status(400).send({message:"Hello"});
         }
 
         //Find the user by email
@@ -31,7 +33,8 @@ async function loginController(req,res){
 
         const token = setUser(user);
         res.status(200).cookie("authToken",token,{
-            httpOnly:true,
+            httpOnly:false,
+            // httpOnly:true, //for production
             secure:true,
             sameSite:"none",
             expires:new Date(Date.now() + 7*24*60*60*1000),
