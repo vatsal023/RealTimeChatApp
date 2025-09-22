@@ -20,6 +20,7 @@ const Login = () => {
     console.log(isAuthenticated);
     if (isAuthenticated) {
       navigate("/");
+      // console.log("Checked")
     }
   }, [isAuthenticated]);
 
@@ -33,6 +34,7 @@ const Login = () => {
         withCredentials: true, // Set withCredentials to true
       });
 
+      console.log(response);
       console.log(response.data.message);
       if (response.status == 200) {
         toast.success(response.data.message);
