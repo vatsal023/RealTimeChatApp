@@ -93,7 +93,7 @@ const createWebSocketServer = (server) => {
         notifyAboutOnlinePeople();
         //Sending online user list to all clients
 
-        console.log("Online Users:",onlineUsers);
+        // console.log("Online Users:",onlineUsers);
     })
 }
 
