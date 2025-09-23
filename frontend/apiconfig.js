@@ -10,3 +10,4 @@ if(import.meta.env.VITE_NODE_ENV==="production"){
 }
 
 export {baseUrl,socketUrl};
+
