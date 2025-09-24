@@ -24,7 +24,7 @@ const Register = () => {
             // const url = "";
             const { data: res } = await axios.post(url, data);
             console.log(res.message);
-            toast.success("Form submitted successfully");
+            toast.success(res.message);
         } catch (error) {
             if (
                 error.response &&
