@@ -13,6 +13,7 @@ export const ProfileProvider = ({children}) =>{
                 const response = await axios.get(
                     "/api/user/profile"
                 );
+                // console.log(response.data)
                 setUserDetails(response.data);
             }catch(error){
                 console.log("Error fetching user details in profile",error);
