@@ -23,6 +23,7 @@ const Layout = () => {
 
   useEffect(() => {
     checkAuth();
+    console.log("Layout effect")
   }, [isAuthenticated]);
 
   return (
