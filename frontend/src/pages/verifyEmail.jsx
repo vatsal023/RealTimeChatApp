@@ -13,6 +13,7 @@ const VerifyEmail = () => {
 
   useEffect(() => {
     checkAuth();
+    console.log("Verify email effect")
     if (isAuthenticated) navigate("/");
   }, []);
 
@@ -29,6 +30,7 @@ const VerifyEmail = () => {
         // console.log("Verification successful:", response.data);
       } catch (error) {
         setLoading(false);
+        console.log(error.response.data.message);
         toast.error(error.response.data.message);
       } finally {
         setLoading(false);
