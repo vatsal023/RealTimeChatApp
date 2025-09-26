@@ -2,11 +2,13 @@ import React,{useEffect,useState} from "react";
 import axios from "axios"
 import Nav from "./Chat/Nav";
 import {useProfile} from "../context/profileContext";
+import { toast } from "react-hot-toast";
 
 const Profile = ()=>{
     const {userDetails} = useProfile();
-    
-    const [formData,setFormData] = useState({});
+    // console.log(userDetails)    
+    const [formData,setFormData] = useState({
+    });
 
     const handleChange = (e) =>{
         setFormData({...formData,[e.target.name]:e.target.value});
@@ -17,10 +19,16 @@ const Profile = ()=>{
 
         try{
             const response = await axios.put("/api/user/profile/update",{
-                ...formData,
-            })
+                ...formData
+        })
+
+            // console.log(response)
+            toast.success("Profile updated")
+
         }catch(error){
             console.error(error)
+
+             toast.error(error.response.data.message);
         }
     }
 
