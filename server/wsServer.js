@@ -11,6 +11,7 @@ const createWebSocketServer = (server) => {
     wss.on("connection",(connection,req)=>{
 
         const notifyAboutOnlinePeople = async()=>{
+
             const onlineUsers = await Promise.all(
                 Array.from(wss.clients).map(async(client)=>{
                     const {userId,username} = client;
@@ -32,6 +33,7 @@ const createWebSocketServer = (server) => {
             })   
         }
 
+
         connection.isAlive = true;
 
         connection.timer = setInterval(()=>{
@@ -45,6 +47,7 @@ const createWebSocketServer = (server) => {
             },1000);
         },5000);
 
+
         connection.on("pong",()=>{
             clearTimeout(connection.deathTimer);
         });
@@ -52,9 +55,10 @@ const createWebSocketServer = (server) => {
         const cookies = req.headers.cookie;
         if(cookies){
             const tokenString = cookies.split(";").find((str)=>str.startsWith("authToken="));
-
+            
             if(tokenString){
                 const token = tokenString.split("=")[1];
+            
                 jwt.verify(token,process.env.JWTPRIVATEKEY,{},(err,userData)=>{
                     if(err) console.log(err);
                     

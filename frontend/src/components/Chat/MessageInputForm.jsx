@@ -1,6 +1,8 @@
 import React from "react";
 
 const MessageInputForm = ({ selectedUserId, newMessage, setNewMessage, sendMessage }) => {
+
+    console.log("msginputform")
     return (
         <>
             {!!selectedUserId && (

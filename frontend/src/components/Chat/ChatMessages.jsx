@@ -7,6 +7,8 @@ const ChatMessages = ({messages,userDetails,selectedUserId})=>{
   useEffect(()=>{
     const container = messagesContainerRef.current;
 
+    console.log("run")
+    
     if(container) {
       container.scrollTo({
         top:container.scrollHeight,
