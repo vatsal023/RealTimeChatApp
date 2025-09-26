@@ -14,7 +14,7 @@ router.post('/login',loginController);
 router.get('/:id/verify/:token',verifyEmail);
 router.get('/people',peopleController);
 router.get('/profile',profileController);
-router.get('/profile/update',profileUpdate);
+router.put('/profile/update',profileUpdate);
 router.get('/messages/:userId',messageController);
 
 module.exports = router;
