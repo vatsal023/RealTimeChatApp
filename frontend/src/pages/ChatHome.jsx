@@ -84,6 +84,7 @@ const ChatHome = () => {
         }
         // Add event listener for real-time messages
         if (ws) {
+            console.log("hrtm attached")
             ws.addEventListener("message", handleRealTimeMessage);
         }
 

@@ -4,7 +4,7 @@ import Contact from "./Contact"
 const OnlineUsersList = ({ onlinePeople, offlinePeople, selectedUserId, setSelectedUserId }) => {
     const [searchTerm, setSearchTerm] = useState("");
 
-    console.log(offlinePeople)
+    console.log(onlinePeople)
 
     const filteredOnlinePeople =
         Object.keys(onlinePeople).filter((userId) => {
