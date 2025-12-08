@@ -130,7 +130,7 @@ const ChatHome = () => {
     }
 
     const sendMessage = (ev) => {
-        console.log(sendmessage)
+        // console.log(sendmessage)
         if (ev) {
             ev.preventDefault();
         }
@@ -149,6 +149,7 @@ const ChatHome = () => {
                 sender: userDetails._id,
                 recipient: selectedUserId,
                 _id: Date.now(),
+                createdAt: new Date().toISOString()
             }
         ])
     }
@@ -183,3 +184,5 @@ const ChatHome = () => {
 }
 
 export default ChatHome;
+
+

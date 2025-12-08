@@ -20,6 +20,9 @@ const createWebSocketServer = (server) => {
                     return {
                         userId,
                         username,
+                        // firstName: user.firstName,
+                        // lastName: user.lastName,
+                        // _id: user._id ? user._id.toString() : userId,
                     };
                 })
             );
@@ -43,7 +46,7 @@ const createWebSocketServer = (server) => {
                 clearInterval(connection.timer);
                 connection.terminate();
                 notifyAboutOnlinePeople();
-                console.log("dead");
+                // console.log("dead");
             },1000);
         },5000);
 
@@ -84,8 +87,10 @@ const createWebSocketServer = (server) => {
                         client.send(
                             JSON.stringify({
                                 sender:connection.username,
+                                // sender:connection.userId,
                                 text,
                                 id:msgDoc._id,
+                                createdAt:msgDoc.createdAt,
                             })
                         )
                     }

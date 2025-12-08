@@ -6,6 +6,12 @@ const OnlineUsersList = ({ onlinePeople, offlinePeople, selectedUserId, setSelec
 
     console.log(onlinePeople)
 
+    // const filteredOnlinePeople =
+    // Object.keys(onlinePeople).filter((userId) => {
+    //     const { firstName = "", lastName = "", username = "" } = onlinePeople[userId];
+    //     const displayName = (firstName && lastName) ? `${firstName} ${lastName}` : username;
+    //     return displayName.toLowerCase().includes(searchTerm.toLowerCase());
+    // })
     const filteredOnlinePeople =
         Object.keys(onlinePeople).filter((userId) => {
             const username = onlinePeople[userId].username || "";
@@ -48,10 +54,14 @@ const OnlineUsersList = ({ onlinePeople, offlinePeople, selectedUserId, setSelec
             <div className="max-h-[85vh] overflow-auto no-scrollbar">
                 {filteredOnlinePeople.map((userId)=>{
                     const {username} = onlinePeople[userId];
+//                     const { firstName, lastName, username } = onlinePeople[userId];
+// // Show full name if possible, else fallback to username
+// const displayName = (firstName && lastName) ? `${firstName} ${lastName}` : username;
                     console.log(userId)
                     return (
                         <Contact key = {userId} 
                         userId = {userId} 
+                        // username = {displayName}
                         username = {username}
                         selectedUserId={selectedUserId}
                         setSelectedUserId = {setSelectedUserId}

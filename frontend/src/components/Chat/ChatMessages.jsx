@@ -1,21 +1,21 @@
-import React, {useEffect,useRef,useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const ChatMessages = ({messages,userDetails,selectedUserId})=>{
+const ChatMessages = ({ messages, userDetails, selectedUserId }) => {
   const messagesContainerRef = useRef(null);
 
   console.log(userDetails)
-  useEffect(()=>{
+  useEffect(() => {
     const container = messagesContainerRef.current;
 
     console.log("run")
-    
-    if(container) {
+
+    if (container) {
       container.scrollTo({
-        top:container.scrollHeight,
-        behaviour:"smooth",
+        top: container.scrollHeight,
+        behaviour: "smooth",
       })
     }
-  },[messages,messagesContainerRef])
+  }, [messages, messagesContainerRef])
 
   return (
     <div
@@ -27,24 +27,32 @@ const ChatMessages = ({messages,userDetails,selectedUserId})=>{
           {messages.map((message) => (
             <div
               key={message._id}
-              className={`text-white ${
-                message.sender !== userDetails._id
+              className={`text-white ${message.sender !== userDetails._id
                   ? "bg-primary  self-start  rounded-r-2xl "
                   : "bg-primarySecond self-end  rounded-l-2xl "
-              } relative group  rounded-b-2xl px-5 py-3 `}
+                } relative group  rounded-b-2xl px-5 py-3 `}
             >
               <div
                 style={{ wordWrap: "breakWord" }}
-                className="flex flex-wrap max-w-[500px] overflow-auto"
+                className={`flex flex-col max-w-[500px] overflow-auto ${
+                  message.sender === userDetails._id ? "items-end" : "items-start"
+                }`}
               >
-                {message.text}
+                <span className="leading-relaxed">{message.text}</span>
+                <span className="text-xs text-gray-300">
+                  {message.createdAt &&
+                    new Date(message.createdAt).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      hour12: false,
+                    })}
+                </span>
               </div>
               <div
-                className={`absolute top-0  w-0 h-0  ${
-                  message.sender !== userDetails._id
+                className={`absolute top-0  w-0 h-0  ${message.sender !== userDetails._id
                     ? "border-r-primary -left-4 border-r-[20px]"
                     : "rounded-l-lg -right-4 border-l-primarySecond border-l-[20px]"
-                } border-b-[20px] border-b-transparent `}
+                  } border-b-[20px] border-b-transparent `}
               ></div>
             </div>
           ))}
