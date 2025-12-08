@@ -43,8 +43,8 @@ app.use("/api/user",userRoute)
 //     res.send("Hello world")
 // })
 
-const PORT = 8001;
-// const PORT = process.env.PORT||8000;
+// const PORT = 8001;
+const PORT = process.env.PORT||8000;
 
 const server = app.listen(PORT,()=>{
     console.log(`Server started at PORT ${PORT} `)
