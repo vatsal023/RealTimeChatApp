@@ -33,8 +33,8 @@ async function loginController(req,res){
 
         const token = setUser(user);
         res.status(200).cookie("authToken",token,{
-            httpOnly:false,
-            // httpOnly:true, //for production
+            // httpOnly:false,
+            httpOnly:true, //for production
             secure:true,
             sameSite:"none",
             expires:new Date(Date.now() + 7*24*60*60*1000),
