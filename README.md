@@ -1,0 +1,50 @@
+# 🚀 SwiftChat
+
+![React](https://img.shields.io/badge/Frontend-React-blue)
+![Node](https://img.shields.io/badge/Backend-Node.js-green)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen)
+![Socket.IO](https://img.shields.io/badge/Realtime-Socket.IO-black)
+![JWT](https://img.shields.io/badge/Auth-JWT-orange)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
+SwiftChat is a **real-time chat application** that enables seamless communication between users.  
+It includes modern features like **AI chat integration, Google authentication, JWT-based security, and real-time messaging using Socket.IO.**
+
+---
+
+## 🌟 Features
+
+- 💬 Real-Time Messaging
+- 📧 Email Verification
+- 🔐 Secure Authentication (JWT + Cookies)
+- 🔎 Search Contacts
+- 🍪 Cookie-based Session Persistence
+- 🛡️ Secure API Architecture
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- TailwindCSS
+- Axios
+
+### Backend
+- Node.js
+- Express.js
+
+### Database
+- MongoDB
+
+### Authentication
+- JSON Web Tokens (JWT)
+- Cookies
+
+### Real-Time Communication
+- Socket.IO
+
+---
+
+## 📂 Project Structure
+
