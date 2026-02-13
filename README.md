@@ -1,13 +1,6 @@
-# 🚀 SwiftChat
+# 🚀 Real Time Chat Application 
 
-![React](https://img.shields.io/badge/Frontend-React-blue)
-![Node](https://img.shields.io/badge/Backend-Node.js-green)
-![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen)
-![Socket.IO](https://img.shields.io/badge/Realtime-Socket.IO-black)
-![JWT](https://img.shields.io/badge/Auth-JWT-orange)
-![License](https://img.shields.io/badge/License-MIT-yellow)
-
-SwiftChat is a **real-time chat application** that enables seamless communication between users.  
+This is a **real-time chat application** that enables seamless communication between users.  
 It includes modern features like **AI chat integration, Google authentication, JWT-based security, and real-time messaging using Socket.IO.**
 
 ---
@@ -44,7 +37,4 @@ It includes modern features like **AI chat integration, Google authentication, J
 ### Real-Time Communication
 - Socket.IO
 
----
-
-## 📂 Project Structure
 
